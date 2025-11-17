@@ -1,0 +1,8 @@
+{
+  "name": "weather-application",
+  "version": "1.0.0",
+  "description": "A weather application that checks city weather information",
+  "dependencies": {},
+  "Developer": "Sachin",
+  "license": "MIT"
+}
