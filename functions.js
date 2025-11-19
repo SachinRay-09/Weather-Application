@@ -1,5 +1,5 @@
 async function fetchdata(place){
-    const URL = `https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${place}`;
+    const URL = `https://api.weatherapi.com/v1/current.json?key=349d8763b3b64ec697564307251611&q=${place}`;
     try{
         const info = await fetch(URL);
         const data = await info.json();
@@ -22,7 +22,7 @@ async function fetchdata(place){
 };
 
 async function ReFetchData(OnePlace){
-    const url = `https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${OnePlace.location}`;
+    const url = `https://api.weatherapi.com/v1/current.json?key=349d8763b3b64ec697564307251611&q=${OnePlace.location}`;
     try{
         const Info=await fetch(url);
         const Data=await Info.json();
