@@ -1,3 +1,12 @@
+
+let DataArray=JSON.parse(localStorage.getItem('DATA')) || [];
+
+function StoreData(dataObject){
+    DataArray.push(dataObject);
+    localStorage.setItem('DATA', JSON.stringify(DataArray));
+};
+
+
 async function fetchdata(place){
     const URL = `https://api.weatherapi.com/v1/current.json?key=349d8763b3b64ec697564307251611&q=${place}`;
     try{
