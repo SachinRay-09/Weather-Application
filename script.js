@@ -12,17 +12,24 @@ async function fetchdata(place){
     try{
         const info = await fetch(URL);
         const data = await info.json();
-        let dataCollectorObject={
-            ID:Date.now(),
-            location:data.location.name, 
-            region:data.location.region, 
-            country:data.location.country, 
-            temp_c:data.current.temp_c, 
-            temp_f:data.current.temp_f, 
-            humidity:data.current.humidity, 
-            wind:data.current.wind_kph, 
-            uv:data.current.uv, 
-            localtime:data.location.localtime
+        if (data.error) {
+            alert(data.error.message);
+            return null;
+        }
+        let dataCollectorObject;
+        if(data){
+            dataCollectorObject={
+                ID:Date.now(),
+                location:data.location.name, 
+                region:data.location.region, 
+                country:data.location.country, 
+                temp_c:data.current.temp_c, 
+                temp_f:data.current.temp_f, 
+                humidity:data.current.humidity, 
+                wind:data.current.wind_kph, 
+                uv:data.current.uv, 
+                localtime:data.location.localtime
+            }
         }
         return dataCollectorObject;
     } catch(error){
@@ -79,9 +86,11 @@ async function CheckForPlace(){
             return false;
         }
         const PlaceData=await fetchdata(PlaceName);
-        StoreData(PlaceData);
-        render();
-        console.log("Data fetched successfully!!")
+        if (PlaceData) {
+            StoreData(PlaceData);
+            render();
+            console.log("Data fetched successfully!!")
+        }
         document.querySelector(".City-Name").value="";
     } catch(error){
         console.log('Failed to get the data');
