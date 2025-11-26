@@ -2,6 +2,8 @@
 
 A simple and interactive weather application that allows you to check current weather information for any city.
 
+link - https://weatherapplication-alpha.vercel.app/
+
 ## Features
 
 - Search weather information by city name
